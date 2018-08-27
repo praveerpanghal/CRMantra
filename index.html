@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CRMantra Exercise</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.17/angular.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body class="container">
+    <div class="main-container">
+        <h1>Hello World!</h1>
+        <div ng-app="mainApp" ng-controller="myctrl">
+            <input class="text-search" type="text" placeholder="Search.." ng-model="search">
+            <table class="park-style" cellspacing="0" ng-repeat="i in arraylist| filter:search">
+
+                <tr>
+                    <td class="park-style" ng-click="setSelected(i.name,i.details.Area,i.color)">{{ i.name }} </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table cellspacing="0" class="hide-table " ng-class="{selected: i.name === idSelected}">
+                            <tr ng-style="myObj">
+                                <td class="half-width">Area</td>
+                                <td class="half-width">{{i.details.Area}}</td>
+                            </tr>
+                            <tr ng-style="myObj">
+                                <td class="half-width">Location</td>
+                                <td class="half-width">{{i.details.Location}}</td>
+                            </tr>
+                            <tr ng-style="myObj">
+                                <td class="half-width">Year of Formation</td>
+                                <td class="half-width">{{i.details['Year of Formation']}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+
+
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
